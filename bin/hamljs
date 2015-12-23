@@ -2,8 +2,6 @@
 
 var program = require('commander');
 
-var CLI     = require('../lib/cli');
-
 var cli_version    = require('../package.json').version;
 try
 {
