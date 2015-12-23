@@ -1,6 +1,10 @@
 #!/usr/bin/env node
 
 var program = require('commander');
+var fs = require('fs');
+var Haml = require('hamljs');
+var mkdirp = require('mkdirp');
+var path = require('path');
 
 var cli_version    = require('../package.json').version;
 try
@@ -20,4 +24,19 @@ if (process.argv.length === 2) {
     return program.help();
 };
 
-console.log(process);
+var glob = require("glob")
+
+// options is optional
+glob(process.argv[2]+"/**/*.haml", function (er, files) {
+  for(var i in files)
+  {
+    var file_path = files[i];
+    var haml = fs.readFile(file_path, 'utf8', function(file_path) { return function(err, haml) {
+      var html = Haml.render(haml);
+      var output_path = process.argv[3]+file_path.substring(process.argv[2].length).replace(/\.haml$/, ".html");
+      mkdirp(path.dirname(output_path), function(err) { 
+        fs.writeFile(output_path, html, 'utf8');
+      });
+    }}(file_path));
+  }
+});

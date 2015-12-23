@@ -20,7 +20,9 @@
     "url": "https://github.com/benallfree/hamljs-cli"
   },
   "dependencies": {
+    "commander": "~2.6.0",
+    "glob": "^6.0.2",
     "hamljs": "^0.6.2",
-    "commander": "~2.6.0"
+    "mkdirp": "^0.5.1"
   }
 }
