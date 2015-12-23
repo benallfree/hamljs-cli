@@ -1,0 +1,25 @@
+#!/usr/bin/env node
+
+var program = require('commander');
+
+var CLI     = require('../lib/cli');
+
+var cli_version    = require('../package.json').version;
+try
+{
+  var hamljs_version = require('../node_modules/hamljs/package.json').version;
+} catch(ex)
+{
+  var hamljs_version = require('../../hamljs/package.json').version;
+}
+
+program.
+    version('hamljs-cli ' + cli_version + '\nhamljs     ' + hamljs_version).
+    command('[file|dir...]', 'compile one more files').
+    parse(process.argv);
+
+if (process.argv.length === 2) {
+    return program.help();
+};
+
+console.log(process);

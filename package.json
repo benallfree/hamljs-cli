@@ -1,0 +1,26 @@
+{
+  "name": "hamljs-cli",
+  "version": "1.0.0",
+  "description": "Command line tool for hamljs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "haml",
+    "cli"
+  ],
+  "author": "Ben Allfree",
+  "license": "MIT",
+  "bin": {
+    "hamljs": "./bin/hamljs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/benallfree/hamljs-cli"
+  },
+  "dependencies": {
+    "hamljs": "^0.6.2",
+    "commander": "~2.6.0"
+  }
+}
